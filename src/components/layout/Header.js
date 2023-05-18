@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const items = useSelector((state) => state.cart);
   return (
-    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center space-x-20 bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 p-4">
+    <div className="flex flex-col md:flex-row md:justify-start items-center space-x-6 lg:space-x-20 bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 p-4">
       <div className="flex md:ml-10 items-center mt-2">
         <div>
           <svg
@@ -23,7 +23,7 @@ const Header = () => {
           </svg>
         </div>
         <div className="ml-3 font-medium">
-          <h1 className="text-xl text-center text-green-600">
+          <h1 className="text-3xl md:text-xl text-center text-green-600">
             Shop<span className="text-blue-900">ify</span>
           </h1>
         </div>
@@ -44,10 +44,10 @@ const Header = () => {
           </Link>
         </ul>
       </div>
-      <div className="flex justify-evenly w-[40%] mt-2 bg-slate-300 rounded-2xl">
+      <div className="flex  mt-2 bg-slate-300 rounded-2xl">
         <input
           type="search"
-          className="text-black  rounded-lg py-2 px-8 text-lg w-full h-10 outline-none"
+          className="text-black  rounded-lg py-2 px-8 text-lg   h-10 outline-none"
           placeholder="search..."
         />
         <button type="submit" className="py-0 px-2 cursor-pointer h-10">

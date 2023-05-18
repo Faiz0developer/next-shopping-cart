@@ -25,8 +25,8 @@ const CartData = () => {
     setTotal(total - item.price);
   };
   return (
-    <div className="flex justify-between">
-      <div className="pt-7 w-4/6 bg-slate-100">
+    <div className="w-11/12 mx-auto ">
+      <div className="pt-7 bg-slate-100">
         {cartItems.length == "" ? (
           <h1 className="text-center mt-10 text-2xl font-semibold">
             Your Cart is empty.
@@ -35,23 +35,56 @@ const CartData = () => {
           cartItems.map((product) => {
             return (
               <React.Fragment key={product.id}>
-                <div className="flex mb-5 rounded-xl ml-5">
-                  <img
-                    src={product.image}
-                    alt=""
-                    className="object-cover h-[150px] w-[150px]"
-                  />
-                  <div className="ml-14 w-full">
-                    <div className="grid grid-cols-2 ">
-                      <h5 className="font-medium text-2xl">{product.title}</h5>
+                <div className="flex gap-6 md:gap-20  mb-5 rounded-xl md:ml-5">
+                  <div>
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="object-cover h-60 "
+                    />
+                  </div>
+                  <div className="flex flex-col md:flex-row gap-6 justify-between w-full">
+                    <div className="flex flex-col gap-10 w-4/5">
+                      <h5 className="font-medium text-2xl w-full md:w-3/4 ">
+                        {product.title}
+                      </h5>
+                      <div className="md:w-1/3">
+                        <div className="flex gap-2 mb-4">
+                          <Button
+                            className="py-2 px-6"
+                            onClick={() => removeQuantity(product)}
+                          >
+                            -
+                          </Button>
+                          <h6 className="text-lg mt-1 h-8 rounded-sm px-4">
+                            Qty: {product.quantity}
+                          </h6>
+                          <Button
+                            className="px-6"
+                            onClick={() => addMoreQuantity(product)}
+                          >
+                            +
+                          </Button>
+                        </div>
+
+                        <Button
+                          className="w-full rounded-md px-3 py-2 mt-2 bg-amber-500"
+                          onClick={() => RemoveCartItem(product.id)}
+                        >
+                          Remove
+                        </Button>
+                      </div>
+                    </div>
+                    <div>
                       <h5 className="font-bold place-self-end mr-3">
                         {product.quantity} * ₹{product.price}
                       </h5>
                     </div>
+                  </div>
 
-                    <div className="w-[160px] grid grid-cols-2 gap-2 mt-6">
+                  {/* <div className=" grid grid-cols-2 gap-32 mt-6">
                       <Button
-                        className=" py-2"
+                        className="py-2"
                         onClick={() => removeQuantity(product)}
                       >
                         -
@@ -69,7 +102,7 @@ const CartData = () => {
                     >
                       Remove
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
                 <hr />
                 <br />
@@ -77,17 +110,6 @@ const CartData = () => {
             );
           })
         )}
-      </div>
-      <div className="bg-slate-100 w-[30%] pt-7">
-        <div>
-          <h1 className="text-center font-semibold">
-            {cartItems.length} items added in your cart
-          </h1>
-        </div>
-        {cartItems.map((item) => {
-          return <img src={item.image} className="h-[100px]" key={item.id} />;
-        })}
-        {/* <h1>total: {total}</h1> */}
       </div>
     </div>
   );

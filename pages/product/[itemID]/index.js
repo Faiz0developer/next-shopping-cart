@@ -24,13 +24,15 @@ const index = ({ product }) => {
   };
   return (
     <div
-      className={`flex w-[90%] my-5 rounded-md shadow-sm shadow-black justify-evenly p-8 mx-auto bg-slate-300`}
+      className={`flex flex-col md:flex-row w-[90%] my-5 rounded-md shadow-sm shadow-black justify-evenly p-3 gap-10 md:p-8 mx-auto bg-slate-300`}
     >
-      <div className="flex">
-        <img src={product.image} className="object-cover h-[350px]" />
+      <div>
+        <img src={product.image} className="w-full object-cover h-[300px]" />
       </div>
-      <div className="flex flex-col w-[30%] mr-10">
-        <h1 className="font-semibold text-4xl mt-1">{product.title}</h1>
+      <div className="flex flex-col w-full md:w-1/2 mr-10">
+        <h1 className="font-semibold text-2xl md:text-4xl mt-1">
+          {product.title}
+        </h1>
         <p className="text-sm mt-4">{product.description}</p>
         <hr />
         <h1 className="mt-3 font-semibold text-3xl">₹{product.price}</h1>
